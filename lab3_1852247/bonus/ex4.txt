@@ -1,0 +1,5 @@
+4. Suppose that "a.out" is the output file of the program:
+
+	a.out─┬─a.out───a.out
+	      └─a.out
+

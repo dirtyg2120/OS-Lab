@@ -1,0 +1,3 @@
+1. On the screen, it will display "10", but with an error "implicit declaration of function ‘wait’;"
+It's because the program have not included <sys/wait.h> library.
+

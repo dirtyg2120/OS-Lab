@@ -1,0 +1,36 @@
+1. Compiling a program in the first time usually takes a longer time in comparison
+with the next re-compiling. What is the reason?
+	For compiling a file, there are four main phases:
+		(1)Pre-processing (2)Compilation (3)Assembly (4)Linking 
+	The first and second phases are when the source code is passed through and converted into assembly code. In the third phase, it will convert into object code, also create a new object file name ‘*.o’. And the last phase is to link all file together.
+	From that, we can see for the first compile in the third phase, it needs to build the object files of some functions, but when it is completed, the files won’t be deleted so that in the second compiling, compiler does not need to create new files again, Which will reduce the runtime a lots. Unless we delete those object files, the next re-compiling is usually takes a shorter time than the first one.
+
+2. Is there any Makefile mechanism for other programming languages? If it has, give
+an example?
+	There is also Makefile mechanism for Java.
+	For example, I create makefile with 2 classes name “MyClass” and “Student”: 
+	# javac: Reads Java class and interface definitions and compiles them
+       	into bytecode and class files.
+	# -g: Generates all debugging information, including local variables.
+
+	all: MyClass.class Student.class
+	MyClass.class: MyClass.java
+       		javac -g MyClass.java
+	Student.class: Student.java
+        	javac -g Student.java
+	# Removes all .class files
+	clean: 
+        	rm *.class
+
+3. In case of source code files located in different places, how can we write a Makefile? 
+	In that case, there are two ways:
+	1. Having 'makefile' in each of the subdirectories, and build them independently.
+	2. Having 'makefile' only in the root directory of the project.
+	For example:
+
+	all:
+	    +$(MAKE) -C <subdirectory1_name>
+	    +$(MAKE) -C <subdirectory2_name>
+	    +$(MAKE) -C <subdirectory3_name>
+
+	# it will build all file in these subdirectories

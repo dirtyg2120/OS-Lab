@@ -1,0 +1,14 @@
+3.
+#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+	printf("%d\n", getpid()); 
+	pid_t A, B;
+	A = fork();
+	if(A > 0) {
+		A = fork();
+		sleep(2);
+	}
+}
+

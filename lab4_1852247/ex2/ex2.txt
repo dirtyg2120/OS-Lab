@@ -1,0 +1,9 @@
+ - In which cases we should use aligned_malloc() instead of standard malloc?
+	When the alignment of your memory allocation is important, it means that the numerical value of the pointer returned must be evenly divisible by a certain number.
+	A use case for this is when coding low-level disk I/O. The reason for this is that when not using the OS I/O buffer and reading/writing to the disk, the OS requires the memory block to be aligned to the disk sector size; if the disk sector size was 64 bytes and you wanted to write 1024 bytes to disk, we have: aligned_malloc(1024, 64);
+
+
+
+ - How can we increase the size of heap in a running process?
+	We can use brk() and sbrk() system calls, which adjust the "program break", which defines the end of the current process's heap, but programs should not use these system calls directly. Instead of that, we can allocate memory dynamically via malloc() or calloc().
+

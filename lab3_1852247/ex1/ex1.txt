@@ -1,0 +1,5 @@
+1. The output will be at LINE A is:
+	PARENT: value = 5
+
+2. C. Shared memory segments
+When a process creates a new process using fork() operation, only the shared memory segments are shared between the parent process and the child process. Copies of the stack and the heap are made for the newly created process.
