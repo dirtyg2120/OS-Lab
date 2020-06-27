@@ -1,0 +1,9 @@
+A symbolic or soft link is an actual link to the original file, whereas a hard link is a mirror of the original file. If you delete the original file, the soft link has no value, because it points to a non-existent file. But in the case of hard link, it is entirely opposite. Even if you delete the original file, the hard link will still has the data of the original file. Because hard link acts as a mirror copy of the original file.
+
+With the given commands:
+ + $ echo hello world > hello: create a "hello" file with "hello world" as content of it.
+ + $ ln hello world: make a link between "hello" and "world" file, which create a new file with the same content as the original.
+ + $ ln -s hello world: make a symbolic/soft link between "hello" and "hw" file.
+ + $ rm hello: remove "hello" file.
+ + $ cat world: print file's contents. The word is still there, because "world" file is created as a hard link, or we can call a copy of original file so delete "hello" does not affect it.
+ + $ cat hw: can not find this directory. Because it is created as a symbolic/soft link.
